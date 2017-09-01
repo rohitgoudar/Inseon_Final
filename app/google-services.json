@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "633254273417",
+    "firebase_url": "https://inseon-e0d4a.firebaseio.com",
+    "project_id": "inseon-e0d4a",
+    "storage_bucket": "inseon-e0d4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:633254273417:android:25f8de380b695ddb",
+        "android_client_info": {
+          "package_name": "com.appdeveloperrohitgmail.inseon_final"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "633254273417-t1hanq2n1rg4gl911tvt9jmagndshdsg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.appdeveloperrohitgmail.inseon_final",
+            "certificate_hash": "8b850acfd8e6cc437cd8ea8798621921d9bdde55"
+          }
+        },
+        {
+          "client_id": "633254273417-d9rpuoec80c6qes2sdv7k97f8rova47j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDc_Y6_Nhc8SYpZuP4sOe4oXsABAbXngtQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "633254273417-d9rpuoec80c6qes2sdv7k97f8rova47j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
