@@ -30,12 +30,11 @@ public class Question_Option extends AppCompatActivity {
     String[] question_text = new String[7], option_high = new String[7], option_low = new String[7];
     String[][] options_check = new String[12][10];
     String[] shared_question_text = new String[7], shared_option_high = new String[7], shared_option_low = new String[7];
-    String[][] shared_options_check = new String[12][10];
-    //String[] option11=new String[10],option12=new String[10],option13=new String[10],option14=new String[10],option15=new String[10],option16=new String[10],option17=new String[10],option18=new String[10],option19=new String[10],option20=new String[10],option21=new String[10],option22=new String[10];
     String[] option11,option12,option13,option14,option15,option16,option17,option18,option19,option20,option21,option22;
     String[] shared_option11,shared_option12,shared_option13,shared_option14,shared_option15,shared_option16,shared_option17,shared_option18,shared_option19,shared_option20,shared_option21,shared_option22;
     int option11_len,option12_len,option13_len,option14_len,option15_len,option16_len,option17_len,option18_len,option19_len,option20_len,option21_len,option22_len;
-    int option_no = 11, check_no = 11, check_no1 = 0, option_no1 = 0, count_question_no, check_id = 0, flag, checkBox_id_number = 0;
+    int shared_option11_len,shared_option12_len,shared_option13_len,shared_option14_len,shared_option15_len,shared_option16_len,shared_option17_len,shared_option18_len,shared_option19_len,shared_option20_len,shared_option21_len,shared_option22_len;
+    int option_no = 11, check_no = 11, check_no1 = 0, option_no1 = 0, count_question_no,shared_count_question_no, check_id = 0, flag, checkBox_id_number = 0;
     int[] count_options = new int[10];
     int i=0;
 
@@ -75,11 +74,11 @@ public class Question_Option extends AppCompatActivity {
 
         if (internet) {
             Store_From_Firebase();
-            SmilyRate();
+            //SmilyRate();
             Log.d("internet","internet is there");
         } else {
             Retrive_From_Shared();
-            SmilyRate();
+
             Log.d("internet","internet is not there");
         }
     }
@@ -119,6 +118,7 @@ public class Question_Option extends AppCompatActivity {
                     int q_no=1;
                     if (dataSnapshot1.getKey().equals("questions")) {
                         count_question_no = (int) dataSnapshot1.getChildrenCount();
+                        store_from_editor.putInt("count_question_no",count_question_no);
                         Log.d("count_question","  "+count_question_no);
                         for (DataSnapshot dataSnapshot11 : dataSnapshot1.getChildren()) {
                             if (dataSnapshot11.getKey().equals("q"+q_no)) {
@@ -165,6 +165,7 @@ public class Question_Option extends AppCompatActivity {
                             if (dataSnapshot11.getKey().equals("option11")){
                                 int a=0;
                                 option11_len = (int) dataSnapshot11.getChildrenCount();
+                                store_from_editor.putInt("option11_len", option11_len );
                                 option11 = new String[option11_len];
                                 for (DataSnapshot dataSnapshot111 : dataSnapshot11.getChildren()){
                                     option11[a]= dataSnapshot111.getValue().toString();
@@ -180,6 +181,7 @@ public class Question_Option extends AppCompatActivity {
                             if (dataSnapshot11.getKey().equals("option12")){
                                 int b=0;
                                 option12_len = (int) dataSnapshot11.getChildrenCount();
+                                store_from_editor.putInt("option12_len", option12_len );
                                 option12 = new String[option12_len];
                                 for (DataSnapshot dataSnapshot111 : dataSnapshot11.getChildren()){
                                     option12[b]= dataSnapshot111.getValue().toString();
@@ -195,6 +197,7 @@ public class Question_Option extends AppCompatActivity {
                             if (dataSnapshot11.getKey().equals("option13")){
                                 int c=0;
                                 option13_len = (int) dataSnapshot11.getChildrenCount();
+                                store_from_editor.putInt("option13_len", option13_len );
                                 option13 = new String[option13_len];
                                 for (DataSnapshot dataSnapshot111 : dataSnapshot11.getChildren()){
                                     option13[c]= dataSnapshot111.getValue().toString();
@@ -210,6 +213,7 @@ public class Question_Option extends AppCompatActivity {
                             if (dataSnapshot11.getKey().equals("option14")){
                                 int d=0;
                                 option14_len = (int) dataSnapshot11.getChildrenCount();
+                                store_from_editor.putInt("option14_len", option14_len );
                                 option14 = new String[option14_len];
                                 for (DataSnapshot dataSnapshot111 : dataSnapshot11.getChildren()){
                                     option14[d]= dataSnapshot111.getValue().toString();
@@ -224,6 +228,7 @@ public class Question_Option extends AppCompatActivity {
                             if (dataSnapshot11.getKey().equals("option15")){
                                 int e=0;
                                 option15_len = (int) dataSnapshot11.getChildrenCount();
+                                store_from_editor.putInt("option15_len", option15_len );
                                 option15 = new String[option15_len];
                                 for (DataSnapshot dataSnapshot111 : dataSnapshot11.getChildren()){
                                     option15[e]= dataSnapshot111.getValue().toString();
@@ -238,6 +243,7 @@ public class Question_Option extends AppCompatActivity {
                             if (dataSnapshot11.getKey().equals("option16")){
                                 int f=0;
                                 option16_len = (int) dataSnapshot11.getChildrenCount();
+                                store_from_editor.putInt("option16_len", option16_len );
                                 option16 = new String[option16_len];
                                 for (DataSnapshot dataSnapshot111 : dataSnapshot11.getChildren()){
                                     option16[f]= dataSnapshot111.getValue().toString();
@@ -254,6 +260,7 @@ public class Question_Option extends AppCompatActivity {
                             if (dataSnapshot11.getKey().equals("option17")){
                                 int g=0;
                                 option17_len = (int) dataSnapshot11.getChildrenCount();
+                                store_from_editor.putInt("option17_len", option17_len );
                                 option17 = new String[option17_len];
                                 for (DataSnapshot dataSnapshot111 : dataSnapshot11.getChildren()){
                                     option17[g]= dataSnapshot111.getValue().toString();
@@ -268,6 +275,7 @@ public class Question_Option extends AppCompatActivity {
                             if (dataSnapshot11.getKey().equals("option18")){
                                 int h=0;
                                 option18_len = (int) dataSnapshot11.getChildrenCount();
+                                store_from_editor.putInt("option18_len", option18_len );
                                 option18 = new String[option18_len];
                                 for (DataSnapshot dataSnapshot111 : dataSnapshot11.getChildren()){
                                     option18[h]= dataSnapshot111.getValue().toString();
@@ -282,6 +290,7 @@ public class Question_Option extends AppCompatActivity {
                             if (dataSnapshot11.getKey().equals("option19")){
                                 int l=0;
                                 option19_len = (int) dataSnapshot11.getChildrenCount();
+                                store_from_editor.putInt("option19_len", option19_len );
                                 option19 = new String[option19_len];
                                 for (DataSnapshot dataSnapshot111 : dataSnapshot11.getChildren()){
                                     option19[l]= dataSnapshot111.getValue().toString();
@@ -296,6 +305,7 @@ public class Question_Option extends AppCompatActivity {
                             if (dataSnapshot11.getKey().equals("option20")){
                                 int m=0;
                                 option20_len = (int) dataSnapshot11.getChildrenCount();
+                                store_from_editor.putInt("option20_len", option20_len );
                                 option20 = new String[option20_len];
                                 for (DataSnapshot dataSnapshot111 : dataSnapshot11.getChildren()){
                                     option20[m]= dataSnapshot111.getValue().toString();
@@ -310,6 +320,7 @@ public class Question_Option extends AppCompatActivity {
                             if (dataSnapshot11.getKey().equals("option21")){
                                 int n=0;
                                 option21_len = (int) dataSnapshot11.getChildrenCount();
+                                store_from_editor.putInt("option21_len", option21_len );
                                 option21 = new String[option21_len];
                                 for (DataSnapshot dataSnapshot111 : dataSnapshot11.getChildren()){
                                     option21[n]= dataSnapshot111.getValue().toString();
@@ -325,6 +336,7 @@ public class Question_Option extends AppCompatActivity {
                             if (dataSnapshot11.getKey().equals("option22")){
                                 int z=0;
                                 option22_len = (int) dataSnapshot11.getChildrenCount();
+                                store_from_editor.putInt("option22_len", option22_len );
                                 option22 = new String[option22_len];
                                 for (DataSnapshot dataSnapshot111 : dataSnapshot11.getChildren()){
                                     option22[z]= dataSnapshot111.getValue().toString();
@@ -354,7 +366,9 @@ public class Question_Option extends AppCompatActivity {
     {
         Log.d("Retrive_From_Shared()","Retrive_From_Shared");
         sharedPreferences_RetriveFromFirebase = getSharedPreferences("storeFromFirebase", Context.MODE_PRIVATE);
-        for(int i=1;i<=count_question_no;i++)
+        shared_count_question_no = sharedPreferences_RetriveFromFirebase.getInt("count_question_no",7);
+        Log.d("shared_count_questions",""+shared_count_question_no);
+        for(int i=1;i<=shared_count_question_no;i++)
         {
             shared_question_text[i-1]=sharedPreferences_RetriveFromFirebase.getString("question_text"+i,"false");
             q_text[i-1].setText(shared_question_text[i-1]);
@@ -363,40 +377,53 @@ public class Question_Option extends AppCompatActivity {
         String check_h11=sharedPreferences_RetriveFromFirebase.getString("option11","");
         shared_option11 = new String[option11_len];
         shared_option11 = check_h11.split(",");
+        shared_option11_len = sharedPreferences_RetriveFromFirebase.getInt("option11_len",9);
+        Log.d("shared_option11",""+shared_option11[1]);
         String check_h12=sharedPreferences_RetriveFromFirebase.getString("option12","");
         shared_option12 = new String[option12_len];
         shared_option12 = check_h12.split(",");
+        shared_option12_len = sharedPreferences_RetriveFromFirebase.getInt("option12_len",9);
         String check_h13=sharedPreferences_RetriveFromFirebase.getString("option13","");
         shared_option13 = new String[option13_len];
         shared_option13 = check_h13.split(",");
+        shared_option13_len = sharedPreferences_RetriveFromFirebase.getInt("option13_len",9);
         String check_h14=sharedPreferences_RetriveFromFirebase.getString("option14","");
         shared_option14 = new String[option14_len];
         shared_option14 = check_h14.split(",");
+        shared_option14_len = sharedPreferences_RetriveFromFirebase.getInt("option14_len",9);
         String check_h15=sharedPreferences_RetriveFromFirebase.getString("option15","");
         shared_option15 = new String[option15_len];
         shared_option15 = check_h15.split(",");
+        shared_option15_len = sharedPreferences_RetriveFromFirebase.getInt("option15_len",9);
         String check_h16=sharedPreferences_RetriveFromFirebase.getString("option16","");
         shared_option16 = new String[option16_len];
         shared_option16 = check_h16.split(",");
+        shared_option16_len = sharedPreferences_RetriveFromFirebase.getInt("option16_len",9);
         String check_h17=sharedPreferences_RetriveFromFirebase.getString("option17","");
         shared_option17 = new String[option17_len];
         shared_option17 = check_h17.split(",");
+        shared_option17_len = sharedPreferences_RetriveFromFirebase.getInt("option17_len",9);
         String check_h18=sharedPreferences_RetriveFromFirebase.getString("option18","");
         shared_option18 = new String[option18_len];
         shared_option18 = check_h18.split(",");
+        shared_option18_len = sharedPreferences_RetriveFromFirebase.getInt("option18_len",9);
         String check_h19=sharedPreferences_RetriveFromFirebase.getString("option19","");
         shared_option19 = new String[option19_len];
         shared_option19 = check_h19.split(",");
+        shared_option19_len = sharedPreferences_RetriveFromFirebase.getInt("option19_len",9);
         String check_h20=sharedPreferences_RetriveFromFirebase.getString("option20","");
         shared_option20 = new String[option20_len];
         shared_option20 = check_h20.split(",");
+        shared_option20_len = sharedPreferences_RetriveFromFirebase.getInt("option20_len",9);
         String check_h21=sharedPreferences_RetriveFromFirebase.getString("option21","");
         shared_option21 = new String[option21_len];
         shared_option21 = check_h21.split(",");
+        shared_option21_len = sharedPreferences_RetriveFromFirebase.getInt("option21_len",9);
         String check_h22=sharedPreferences_RetriveFromFirebase.getString("option22","");
         shared_option22 = new String[option22_len];
         shared_option22 = check_h22.split(",");
-
+        shared_option22_len = sharedPreferences_RetriveFromFirebase.getInt("option22_len",9);
+        SmilyRate();
     }
 
     public void SmilyRate()
@@ -438,7 +465,7 @@ public class Question_Option extends AppCompatActivity {
     }
     public void smilyRate2()
     {
-
+        Log.d("BAD DEBUG","0");
         smileRating2.setOnSmileySelectionListener(new SmileRating.OnSmileySelectionListener() {
             @Override
             public void onSmileySelected(int smiley) {
@@ -450,14 +477,20 @@ public class Question_Option extends AppCompatActivity {
                     case SmileRating.OKAY:
                         flag=3;
                     case SmileRating.BAD:
+                        Log.d("BAD DEBUG","1");
                         layout_q2.removeAllViews();
-                        checkBox2 = new CheckBox[option12_len];
+                        Log.d("BAD DEBUG","2 OPTION LEN"+option12_len);
+                        checkBox2 = new CheckBox[shared_option12_len];
                         for(String value: shared_option12){
+                            Log.d("BAD DEBUG","2.1");
                             checkBox2[i] = new CheckBox(Question_Option.this);
+                            Log.d("BAD DEBUG","2.2");
                             checkBox2[i].setText(value);
                             checkBox2[i].setTextSize(20);
                             checkBox2[i].setId(i);
+                            Log.d("BAD DEBUG","3");
                             layout_q2.addView(checkBox2[i]);
+                            Log.d("BAD DEBUG","4");
                             i++;
                             flag=2;
                         }
@@ -466,8 +499,10 @@ public class Question_Option extends AppCompatActivity {
                         flag=4;
                     case SmileRating.GREAT:
                         layout_q2.removeAllViews();
-                        checkBox2 = new CheckBox[option11_len];
-                        for(String value: shared_option11){
+                        checkBox2 = new CheckBox[shared_option11_len];
+                        Log.d("high check",""+ shared_option11[0]);
+                        for(String value : shared_option11){
+                            Log.d("high check",""+ i);
                             checkBox2[i] = new CheckBox(Question_Option.this);
                             checkBox2[i].setText(value);
                             checkBox2[i].setTextSize(20);
@@ -475,12 +510,12 @@ public class Question_Option extends AppCompatActivity {
                             layout_q2.addView(checkBox2[i]);
                             i++;
                             flag=5;
-                            Log.d("high check",""+ i);
+
                         }
                         break;
                     default:
                         layout_q2.removeAllViews();
-                        checkBox2 = new CheckBox[option11_len];
+                        checkBox2 = new CheckBox[shared_option11_len];
                         for(String value: option11){
                             checkBox2[i] = new CheckBox(Question_Option.this);
                             checkBox2[i].setText(value);
@@ -511,7 +546,7 @@ public class Question_Option extends AppCompatActivity {
                         flag=3;
                     case SmileRating.BAD:
                         layout_q3.removeAllViews();
-                        checkBox3 = new CheckBox[option14_len];
+                        checkBox3 = new CheckBox[shared_option14_len];
                         //checkBox3 = new CheckBox[10];
                         for(String value: shared_option14){
                             checkBox3[i] = new CheckBox(Question_Option.this);
@@ -527,7 +562,7 @@ public class Question_Option extends AppCompatActivity {
                         flag=4;
                     case SmileRating.GREAT:
                         layout_q3.removeAllViews();
-                        checkBox3 = new CheckBox[option13_len];
+                        checkBox3 = new CheckBox[shared_option13_len];
                         //checkBox3 = new CheckBox[10];
                         for(String value: shared_option13){
                             checkBox3[i] = new CheckBox(Question_Option.this);
@@ -559,7 +594,7 @@ public class Question_Option extends AppCompatActivity {
                         flag=3;
                     case SmileRating.BAD:
                         layout_q4.removeAllViews();
-                        checkBox4 = new CheckBox[option16_len+1];
+                        checkBox4 = new CheckBox[shared_option16_len+1];
                         for(String value: shared_option16){
                             checkBox4[i] = new CheckBox(Question_Option.this);
                             checkBox4[i].setText(value);
@@ -574,7 +609,7 @@ public class Question_Option extends AppCompatActivity {
                         flag=4;
                     case SmileRating.GREAT:
                         layout_q4.removeAllViews();
-                        checkBox4 = new CheckBox[option15_len+1];
+                        checkBox4 = new CheckBox[shared_option15_len+1];
                         for(String value: shared_option15){
                             checkBox4[i] = new CheckBox(Question_Option.this);
                             checkBox4[i].setText(value);
@@ -605,7 +640,7 @@ public class Question_Option extends AppCompatActivity {
                         flag=3;
                     case SmileRating.BAD:
                         layout_q5.removeAllViews();
-                        checkBox5 = new CheckBox[option18_len];
+                        checkBox5 = new CheckBox[shared_option18_len];
                         for(String value: shared_option18){
                             checkBox5[i] = new CheckBox(Question_Option.this);
                             checkBox5[i].setText(value);
@@ -620,7 +655,7 @@ public class Question_Option extends AppCompatActivity {
                         flag=4;
                     case SmileRating.GREAT:
                         layout_q5.removeAllViews();
-                        checkBox5 = new CheckBox[option17_len];
+                        checkBox5 = new CheckBox[shared_option17_len];
                         for(String value: shared_option17){
                             checkBox5[i] = new CheckBox(Question_Option.this);
                             checkBox5[i].setText(value);
@@ -651,7 +686,7 @@ public class Question_Option extends AppCompatActivity {
                         flag=3;
                     case SmileRating.BAD:
                         layout_q6.removeAllViews();
-                        checkBox6 = new CheckBox[option20_len];
+                        checkBox6 = new CheckBox[shared_option20_len];
                         for(String value: shared_option20){
                             checkBox6[i] = new CheckBox(Question_Option.this);
                             checkBox6[i].setText(value);
@@ -666,7 +701,7 @@ public class Question_Option extends AppCompatActivity {
                         flag=4;
                     case SmileRating.GREAT:
                         layout_q6.removeAllViews();
-                        checkBox6 = new CheckBox[option19_len];
+                        checkBox6 = new CheckBox[shared_option19_len];
                         for(String value: shared_option19){
                             checkBox6[i] = new CheckBox(Question_Option.this);
                             checkBox6[i].setText(value);
@@ -698,7 +733,7 @@ public class Question_Option extends AppCompatActivity {
                     case SmileRating.BAD:
                         layout_q7.removeAllViews();
                         Log.d("option22_len",""+ option22_len);
-                        checkBox7 = new CheckBox[option22_len];
+                        checkBox7 = new CheckBox[shared_option22_len];
                         //checkBox7 = new CheckBox[10];
                         for(String value: shared_option22){
                             checkBox7[q] = new CheckBox(Question_Option.this);
@@ -716,7 +751,7 @@ public class Question_Option extends AppCompatActivity {
                     case SmileRating.GREAT:
                         layout_q7.removeAllViews();
                         Log.d("option21_len",""+ option21_len);
-                        checkBox7 = new CheckBox[option21_len];
+                        checkBox7 = new CheckBox[shared_option21_len];
                         //checkBox7 = new CheckBox[10];
                         for(String value: shared_option21){
                             checkBox7[q] = new CheckBox(Question_Option.this);
